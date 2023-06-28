@@ -30,12 +30,12 @@ describe('User Authorization', () => {
   })   
   
 
-  // it("Empty password",function () {
-  //   cy.log(`Empty password`)
-  //   cy.get('#email').type(user.email); //Fill Email field
-  //   cy.get('#password').clear() //Fill Password field
-  //   cy.get('[class="mat-focus-indicator mat-raised-button mat-button-base mat-primary mat-button-disabled"]').should('be.disabled'); //Click Button
-  //    }) 
+  it("Empty password",function () {
+    cy.log(`Empty password`)
+    cy.get('#email').type(user.email); //Fill Email field
+    cy.get('#password').clear() //Fill Password field
+    cy.get('[class="mat-focus-indicator mat-raised-button mat-button-base mat-primary mat-button-disabled"]').should('be.disabled'); //Click Button
+     }) 
 
   });
   

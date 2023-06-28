@@ -32,12 +32,11 @@ describe('User Registration', () => {
     });
 });
 
-    // it("Fill in Registration form - failed",() => {
-    //     cy.get('#emailControl').type("anyone@gmail.com"); //Fill Email field
-    //     cy.get('#passwordControl').type("Qwerty1"); //Fill Password field
-    //     cy.get('#repeatPasswordControl').type("Qwerty1/"); //Fill Repeat Password field
-    //     cy.get('.mat-select-arrow-wrapper').click(); //Fill Security Question field
-    //     cy.get('#mat-option-13').click(); 
-    //     cy.get('#registerButton').should('be.disabled'); //Click Button
-    // });  
-// });
+    it("Fill in Registration form - failed",() => {
+        cy.get('#emailControl').type("anyone@gmail.com"); //Fill Email field
+        cy.get('#passwordControl').type("Qwerty1"); //Fill Password field
+        cy.get('#repeatPasswordControl').type("Qwerty1/"); //Fill Repeat Password field
+        cy.get('.mat-select-arrow-wrapper').click(); //Fill Security Question field
+        cy.get('#mat-option-13').click(); 
+        cy.get('#registerButton').should('be.disabled'); //Click Button
+    });  

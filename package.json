@@ -1,21 +1,21 @@
 {
-  "name": "project",
+  "name": "exam_api_part2",
   "version": "1.0.0",
   "description": "",
-  "main": "cypress.config.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node your_server_file.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.15.0",
-    "faker": "^5.5.3"
+    "cypress": "^12.15.0"
   },
   "devDependencies": {
-    "cypress-helper-redux": "^2.0.5",
+    "@faker-js/faker": "^8.0.2",
+    "faker": "^5.5.3",
     "json-server": "^0.17.3",
     "json-server-auth": "^2.1.0"
-  },
-  "chromeWebSecurity": "false"
+  }
 }

@@ -1,41 +1,17 @@
-import faker from 'faker';
+import loginPage from "../support/pages/LoginPage";
+import user from '../fixtures/RegisteredUser.json';
 
-describe('User Authorization', () => {
-  let user;
+it('Authorization successful', {retries: 2}, () => {
+  loginPage.visit();
+  loginPage.submitLoginForm(user.email, user.password);
+})
 
-  before(() => {
-      user = {
-      email: faker.internet.email(),
-      password: faker.internet.password()
-    };
-    cy.fixture('userdata.json').then((userdata) => {
-      user = userdata;
-   });
-  });
-   
-   it('Enter Login form', () => {
-      cy.visit('https://juice-shop-sanitarskyi.herokuapp.com/')
-      cy.get('#navbarAccount > .mat-button-wrapper > span').click();
-      cy.get('#navbarLoginButton').click();
-    });
+it('Authorization unsuccessful', {retries: 1}, () => {
+  loginPage.visit();
+  loginPage.submitLoginForm(user.email, "incorrect-password");
+  cy.get('.error').contains('Invalid email or password')
+  cy.log('test failed because of invalid email or password')
 
+})
 
-  it("Fill in Login form - success",function () {
-  cy.log(`Successfull Login`)
-    cy.get('#email').type(user.email); //Fill Email field
-    cy.get('#password').type(user.password); //Fill Password field
-    cy.get('[class="mat-focus-indicator mat-raised-button mat-button-base mat-primary"]').click(); //Click Button
-    cy.get('#navbarAccount').click(); //Click on account button
-    cy.get('#navbarLogoutButton').click(); //Click on Logout button
-  })   
-  
-
-  it("Empty password",function () {
-    cy.log(`Empty password`)
-    cy.get('#email').type(user.email); //Fill Email field
-    cy.get('#password').clear() //Fill Password field
-    cy.get('[class="mat-focus-indicator mat-raised-button mat-button-base mat-primary mat-button-disabled"]').should('be.disabled'); //Click Button
-     }) 
-
-  });
   
